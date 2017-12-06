@@ -17,7 +17,7 @@ export default class LoadingIndicator extends Component {
   }
 
   componentWillUnmount() {
-    clearTimeout();
+    clearTimeout(this._delayTimer);
   }
 
   render() {
