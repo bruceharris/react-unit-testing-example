@@ -36,7 +36,12 @@ describe('LoadingIndicator', () => {
             <div>ahoy!</div>
           </LoadingIndicator>
         );
+
+        expect(setTimeout.mock.calls.length).toEqual(1);
+        expect(setTimeout.mock.calls[0][1]).toEqual(200);
+
         jest.runAllTimers();
+
         expect(wrapper.html()).toBe('<div>loading...</div>');
         wrapper.unmount();
       });
