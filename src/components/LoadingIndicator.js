@@ -16,6 +16,10 @@ export default class LoadingIndicator extends Component {
     );
   }
 
+  componentWillUnmount() {
+    clearTimeout(this._delayTimer);
+  }
+
   render() {
     if (this.props.isLoading) {
       if (!this.state.isPastDelay) {
