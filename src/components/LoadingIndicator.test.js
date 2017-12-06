@@ -10,8 +10,22 @@ describe('LoadingIndicator', () => {
           <div>ahoy!</div>
         </LoadingIndicator>
       );
-      expect(wrapper.html()).toEqual('<div>ahoy!</div>')
+      expect(wrapper.html()).toEqual('<div>ahoy!</div>');
       wrapper.unmount();
+    });
+  });
+
+  describe('when isLoading is true', () => {
+    describe('given 200ms have not yet elapsed', () => {
+      it('should render nothing', () => {
+        const wrapper = mount(
+          <LoadingIndicator isLoading={true}>
+            <div>ahoy!</div>
+          </LoadingIndicator>
+        );
+        expect(wrapper.html()).toBe(null);
+        wrapper.unmount();
+      });
     });
   });
 });
