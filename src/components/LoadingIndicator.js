@@ -6,9 +6,22 @@ export default class LoadingIndicator extends Component {
     isLoading: PropTypes.bool.isRequired,
   };
 
+  state = {
+    isPastDelay: false
+  };
+
+  componentWillMount () {
+    this._delayTimer = setTimeout(
+      () => this.setState({ isPastDelay: true }), 200
+    )
+  }
+
   render() {
     if (this.props.isLoading) {
-      return null;
+      if (!this.state.isPastDelay) {
+        return null;
+      }
+      return <div>loading...</div>;
     }
     return this.props.children;
   }
