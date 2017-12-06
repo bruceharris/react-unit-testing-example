@@ -27,5 +27,19 @@ describe('LoadingIndicator', () => {
         wrapper.unmount();
       });
     });
+
+    describe('given 200ms have elapsed', () => {
+      it('should render loading indicator', () => {
+        jest.useFakeTimers();
+        const wrapper = mount(
+          <LoadingIndicator isLoading={true}>
+            <div>ahoy!</div>
+          </LoadingIndicator>
+        );
+        jest.runAllTimers();
+        expect(wrapper.html()).toBe('<div>loading...</div>');
+        wrapper.unmount();
+      });
+    });
   });
 });
