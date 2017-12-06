@@ -12,8 +12,8 @@ export default class LoadingIndicator extends Component {
 
   componentWillMount () {
     this._delayTimer = setTimeout(
-      () => this.setState({ isPastDelay: true }), 100
-    )
+      () => this.setState({ isPastDelay: true }), 200
+    );
   }
 
   render() {
