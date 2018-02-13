@@ -8,7 +8,7 @@ class App extends Component {
     isLoading: true,
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this._timer = setTimeout(
       () => this.setState({isLoading: false}),
       2000

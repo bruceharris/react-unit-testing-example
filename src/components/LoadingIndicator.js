@@ -10,7 +10,7 @@ export default class LoadingIndicator extends Component {
     isPastDelay: false
   };
 
-  componentWillMount () {
+  componentDidMount () {
     this._delayTimer = setTimeout(
       () => this.setState({ isPastDelay: true }), 200
     );
